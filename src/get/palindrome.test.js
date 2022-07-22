@@ -1,11 +1,10 @@
-const adapconUtils = require('adapcon-utils-js')
-const handler = require('./palindrome.js')
+const { getPalindromeDate } = require('./palindrome.js')
 
 const {
     expect, test, describe
 } = require('@jest/globals')
 
-describe('Handler file test', function () {
+describe('Palindrome file test', function () {
 
     function palindromeCheck(str) {
         const noSpecialCharacters = /[^A-Za-z0–9]/g
@@ -14,20 +13,20 @@ describe('Handler file test', function () {
         return reverseStr === lowerStr
     }
 
-    // const nextPalindromeDate = handler.handler
-    // console.log(nextPalindromeDate)
+    describe("getPalindromeDate function", function () {
 
-    // test('Expected received palindrome', function () {
-    //     expect(true).toBe(palindromeCheck(nextPalindromeDate))
-    // })
+        test('Expected received palindrome', function () {
+            expect(true).toBe(palindromeCheck(getPalindromeDate()))
+        })
 
-    test('Expected received palindrome', function () {
-        expect(2).toBe(handler.handler(new Date))
+        test('getPalindromeDate: should return format date (DD/MM/YYYY) and no params  ', function () {
+            expect("03/02/2030").toBe(getPalindromeDate())
+        })
+
+        test('getPalindromeDate endpoint: next date 04/02/2030', function () {
+            expect("13/02/2031").toBe(getPalindromeDate("04/02/2030"))
+            expect("23/02/2032").toBe(getPalindromeDate("02/14/2031"))
+            expect("04/02/2040").toBe(getPalindromeDate("02/24/2032"))
+        })
     })
-
-    test('Should return a format date (DD/MM/YYYY)', function () {
-        expect(new Intl.DateTimeFormat('pt-br').format(new Date)).toBe(adapconUtils.formatDate(new Date))
-    })
-
-    test.todo('test: no params')
 })
