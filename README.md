@@ -1,11 +1,11 @@
 ## Production Endpoint
 
-    https://ktf55ovved.execute-api.sa-east-1.amazonaws.com/dev/date
+    https://8bilj8iual.execute-api.sa-east-1.amazonaws.com/dev/date/
 
 ### Query String Parameters
 
   You can use queryStringParameters called nextDate, it's not required and you must use in this format.
-    `http://localhost:3000/dev/data?nextDate=DD/MM/YYYY`
+    `http://localhost:3000/dev/data?nextDate=MM/DD/YYYY`
 
 ## Run locally
 
@@ -15,7 +15,7 @@ First, run the development server:
 npm run local
 ```
 
-Open [http://localhost:3000/dev/data](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000/dev/data) with your browser to see the result.
 
 ## Run tests
 
