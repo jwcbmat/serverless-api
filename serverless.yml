@@ -1,0 +1,23 @@
+service: serverless-api-adapcon
+frameworkVersion: "2"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: sa-east-1
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+
+functions:
+  getPalindromeDate:
+    handler: src/get/palindrome.handler
+    memorySize: 128
+    events:
+      - http:
+          path: /date
+          method: GET
