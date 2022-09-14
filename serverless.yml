@@ -1,4 +1,4 @@
-service: serverless-api-adapcon
+service: serverless-api
 frameworkVersion: "2"
 
 plugins:

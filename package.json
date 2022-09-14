@@ -1,5 +1,5 @@
 {
-  "name": "serverless-api-adapcon",
+  "name": "serverless-api",
   "version": "1.0.0",
   "description": "First, run the development server:",
   "main": "index.js",
