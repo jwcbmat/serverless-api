@@ -1,4 +1,4 @@
-const handler = async event => {
+const handler = async (event: any): Promise<{ statusCode: number, body: string }> => {
     try {
         const resDate = getPalindromeDate(event.queryStringParameters?.nextDate)
         return {
@@ -13,8 +13,8 @@ const handler = async event => {
     }
 }
 
-const getPalindromeDate = initialDate => {
-    const formattedInitialDate = !initialDate ? new Date : new Date(initialDate)
+const getPalindromeDate = (initialDate: string): string => {
+    const formattedInitialDate = initialDate ? new Date(initialDate) : new Date()
 
     let foundPalindrome = false
     const onlyNumbers = /[^0-9]/g
